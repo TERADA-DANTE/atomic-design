@@ -22,11 +22,45 @@ atoms - molcules - organisms - templates - pages
 
 <img src = './images/atom.png' src= 'atom'>
 
+```javascript
+const Button = ({ type = 'button', children = '' }) => (
+  <button type={type}>{children}</button>
+)
+
+const Input = ({ type = 'text', id = '' }) => (
+  <input type={type} id={id} />
+)
+
+const Label = ({ for = '', children = '' }) => (
+  <label htmlFor={for}>{children}</label>
+)
+```
+
 Atom はできる限り一番小さい Component のことをいいます。例として button, title, input, event color pallets, animations, font などがあります。これらをどんな Context でも、例えば Global もしくは他の Componet の中、使うことができます。
 
 # Molcule
 
 <img src = './images/molcule.png' src= 'molcule'>
+
+```javascript
+import { Button, Input } from 'atoms'
+
+const SearchForm = () => (
+  <div>
+    <Input />
+    <Button type={submit}> Search </Button>
+  </div>
+)
+
+import { Label, Input } from 'atoms'
+
+const FormLabel = () => (
+  <div>
+    <Label for='form_test'>test</Label>
+    <Input id='form_test' />
+  </div>
+)
+```
 
 Molcule は 1 個もしくは 1 個以上の Atom の集合です。ここから我々は複雑な Component の設計を行います。Molcule はそれなりの関数や Action を持つことはないですが、なかの Atom を使い Property、Function をつけることをします。
 
